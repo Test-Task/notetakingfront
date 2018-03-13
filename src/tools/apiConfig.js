@@ -1,5 +1,6 @@
 
 //constants for api URL;
+//var BASEURL = "https://notetakingapptask.herokuapp.com/";
 var BASEURL = "http://localhost:3000/";
 
 export const SIGN_UP = BASEURL + 'users/register';

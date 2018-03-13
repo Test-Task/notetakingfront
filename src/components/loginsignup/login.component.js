@@ -26,11 +26,14 @@ class Login extends Component {
     debugger
     if (nextProps.signin) {
       if (nextProps.signin.signin) {
-        toast.success('User logged in successfully')
+        // toast.success('User logged in successfully')
+        toast.success(nextProps.signin.message);
         setTimeout(function () { this.props.parentContext.props.history.push('/app') }.bind(this), 1000);
       }
       else {
-        toast.error('Either email or password is incorrect!')
+        // toast.error('Either email or password is incorrect!')
+        toast.error(nextProps.signin.message);
+        
       }
     }
   }

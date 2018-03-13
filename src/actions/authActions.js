@@ -8,9 +8,9 @@ export function signUp(data) {
         axios.post(api.SIGN_UP, data)
             .then(function (response) {
                 if (response.data.status == 200) {
-                    return dispatch({ type: types.SIGN_UP_SUCCESS, signup: { signup: 'success' } });
+                    return dispatch({ type: types.SIGN_UP_SUCCESS, signup: { signup: 'success',message:response.data.message } });
                 } else {
-                    return dispatch({ type: types.SIGN_UP_SUCCESS, signup: { signup: 'success' } });
+                    return dispatch({ type: types.SIGN_UP_SUCCESS, signup: { signup: '', message:response.data.message } });
                 }
             })
             .catch(function (error) {
@@ -27,9 +27,9 @@ export function signIn(data) {
                     localStorage.setItem('email', response.data.data.email)
                     localStorage.setItem('userId', response.data.data._id)
                     localStorage.setItem('token', response.data.token)
-                    return dispatch({ type: types.SIGN_IN_SUCCESS, signin: { signin: 'success' } });
+                    return dispatch({ type: types.SIGN_IN_SUCCESS, signin: { signin: 'success',message:response.data.message } });
                 } else {
-                    return dispatch({ type: types.SIGN_IN_SUCCESS, signin: { signin: '' } });
+                    return dispatch({ type: types.SIGN_IN_SUCCESS, signin: { signin: '', message:response.data.message } });
                 }
             })
             .catch(function (error) {

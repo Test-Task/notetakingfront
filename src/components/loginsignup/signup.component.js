@@ -29,13 +29,15 @@ class SignUp extends Component {
     debugger
     if (nextProps.signup) {
       if (nextProps.signup.signup) {
-        toast.success('User registered successfully, please login')
+        // toast.success('User registered successfully, please login');
+        toast.success(nextProps.signup.message)
         setTimeout(function () {
           this.props.parentContext.handleClick()
         }.bind(this), 2000);
       }
       else {
-        toast.error('Some error occured, please try again')
+        // toast.error('Some error occured, please try again')
+        toast.error(nextProps.signup.message)
       }
     }
   }

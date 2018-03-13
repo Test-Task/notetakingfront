@@ -15,13 +15,9 @@ export function addNote(data) {
             .then(function (response) {
                  
                 if (response.data.status == 200) {
-                    return dispatch({ type: types.ADD_NOTE_SUCCESS, note: response.data.data })
-                } else if (response.data.status == 403) {
-                    // localStorage.clear();
-                    // browserHistory.push('/signin');
-                    // toastr.error(response.data.message);
-                }
-                else {
+                    return dispatch({ type: types.ADD_NOTE_SUCCESS, message:response.data.message, note: response.data.data })
+                } else {
+                    return dispatch({ type: types.ADD_NOTE_SUCCESS, message:response.data.message });
                     // toastr.error(response.data.message);
                 }
             })
@@ -43,13 +39,8 @@ export function getNotes(userId) {
                  
                 if (response.data.status == 200) {
                     return dispatch({ type: types.GET_NOTES, notes: response.data.notes })
-                } else if (response.data.status == 201) {
-                    // localStorage.clear();
-                    // browserHistory.push('/signin');
-                    // toastr.error(response.data.message);
-                }
-                else {
-                    // toastr.error(response.data.message);
+                } else {
+                    return dispatch({ type: types.GET_NOTES, message:response.data.message });                    
                 }
             })
             .catch(function (error) {
@@ -70,12 +61,8 @@ export function deleteNote(userId) {
                  
                 if (response.data.status == 200) {
                     return dispatch({ type: types.DELETE_NOTE_SUCCESS, noteId: userId })
-                } else if (response.data.status == 201) {
-                    // localStorage.clear();
-                    // browserHistory.push('/signin');
-                    // toastr.error(response.data.message);
-                }
-                else {
+                }else {
+                    return dispatch({ type: types.DELETE_NOTE_SUCCESS, message:response.data.message });                                        
                     // toastr.error(response.data.message);
                 }
             })
@@ -97,12 +84,8 @@ export function updateNote(data) {
                  
                 if (response.data.status == 200) {
                     return dispatch({ type: types.UPDATE_NOTE_SUCCESS, updatedNote: response.data.updatedNote })
-                } else if (response.data.status == 403) {
-                    // localStorage.clear();
-                    // browserHistory.push('/signin');
-                    // toastr.error(response.data.message);
-                }
-                else {
+                }else {
+                    return dispatch({ type: types.UPDATE_NOTE_SUCCESS, message:response.data.message });                                        
                     // toastr.error(response.data.message);
                 }
             })
@@ -122,12 +105,8 @@ export function getNote(userId) {
             .then(function (response) {
                 if (response.data.status == 200) {
                     return dispatch({ type: types.GET_NOTE_SUCCESS, note: response.data.data })
-                } else if (response.data.status == 201) {
-                    // localStorage.clear();
-                    // browserHistory.push('/signin');
-                    // toastr.error(response.data.message);
-                }
-                else {
+                }else {
+                    return dispatch({ type: types.GET_NOTE_SUCCESS, message:response.data.message });                                        
                     // toastr.error(response.data.message);
                 }
             })
